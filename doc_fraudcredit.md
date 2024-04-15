@@ -15,6 +15,10 @@ google.colab <p>
 
 ##
 
+O JOB TEM INTEGRAÇÃO DIRETA COM O GOOGLE DRIVE, PARA REALIZAR A LEITURA E EDIÇÃO, ESTÁ COM UM SCHEDULE NO GCP  1 VEZ POR DIA AS 01:00 AM.
+
+
+##
 
 #### PROCESSO DE ETL
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -426,18 +430,26 @@ for index, row in data_quality.iterrows():
     insert_logerror = "INSERT INTO DB_FRAUD.DT_LOGERROR(`timestamp` ,`sending_address`  ,`receiving_address`    ,`amount`   ,`transaction_type` ,`location_region`  ,`ip_prefix`    ,`login_frequency`  ,`session_duration` ,`purchase_pattern` ,`age_group`    ,`risk_score`   ,`anomaly`  ,`error_message`)  VALUES (%s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s) "
     log_error_insert = (row['timestamp'],row['sending_address'],row['receiving_address'],row['amount'],row['transaction_type'],row['location_region'],row['ip_prefix'],row['login_frequency'],row['session_duration'],row['purchase_pattern'],row['age_group'],row['risk_score'],row['anomaly'],row['error_message'],)
     cursor.execute(insert_logerror, log_error_insert)
-    conn.commit()
-
+    conn.commit() 
  ```
 
  ```python
-    for index , row in log_error.iterrows():
-    insert_logerror = "INSERT INTO DB_FRAUD.DT_LOGERROR(`timestamp` ,`sending_address`  ,`receiving_address`    ,`amount`   ,`transaction_type` ,`location_region`  ,`ip_prefix`    ,`login_frequency`  ,`session_duration` ,`purchase_pattern` ,`age_group`    ,`risk_score`   ,`anomaly`  ,`error_message`)  VALUES (%s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s) "
-    log_error_insert = (row['timestamp'],row['sending_address'],row['receiving_address'],row['amount'],row['transaction_type'],row['location_region'],row['ip_prefix'],row['login_frequency'],row['session_duration'],row['purchase_pattern'],row['age_group'],row['risk_score'],row['anomaly'],row['error_message'],)
-    cursor.execute(insert_logerror, log_error_insert)
+for index , row in result_table_1.iterrows():
+    insert_result_table_1 = "INSERT INTO DB_FRAUD.RSLT_I(location_region,risk_score)  VALUES (%s, %s) "
+    result_table_1_insert = (row['location_region'],row['risk_score'])
+    cursor.execute(insert_result_table_1, result_table_1_insert)
     conn.commit()
+```
 
- ```
+```python
+
+for index , row in result_table_2.iterrows():
+    insert_result_table_2 = "INSERT INTO DB_FRAUD.RSLT_2(receiving_address,amount,timestamp)  VALUES (%s, %s,%s) "
+    result_table_2_insert = (row['receiving_address'],row['amount'], row['timestamp'])
+    cursor.execute(insert_result_table_2, result_table_2_insert)
+    conn.commit() 
+```
+
 
  ##
 
