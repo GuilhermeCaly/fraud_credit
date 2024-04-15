@@ -65,7 +65,7 @@ df_fraud['anomaly'] =  df_fraud['anomaly'].astype(str)
 ##
 
 # PRIMEIRO CASE:
-``` python
+```python
 mean_risk_score = df_fraud.groupby('location_region')['risk_score'].mean()
 result_table_1 = mean_risk_score.sort_values(ascending=False).reset_index()
 display(result_table_1)
