@@ -15,6 +15,10 @@ google.colab <p>
 
 ##
 
+O JOB TEM INTEGRAÇÃO DIRETA COM O GOOGLE DRIVE, PARA REALIZAR A LEITURA E EDIÇÃO, ESTÁ COM UM SCHEDULE NO GCP  1 VEZ POR DIA AS 01:00 AM.
+
+
+##
 
 #### PROCESSO DE ETL
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
