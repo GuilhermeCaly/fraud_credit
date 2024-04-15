@@ -438,3 +438,66 @@ for index, row in data_quality.iterrows():
     conn.commit()
 
  ```
+
+ ##
+
+# CRIAÇÃO  TABELAS MYSQL
+
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
+### CRIAÇÃOTABELA LOG DE ERRO
+``` sql
+CREATE TABLE IF NOT EXISTS DT_LOGERROR (
+timestamp datetime ,
+sending_address varchar(250) ,
+receiving_address varchar(250) ,
+amount int ,
+transaction_type varchar(250) ,
+location_region varchar(250) ,
+ip_prefix varchar(250) ,
+login_frequency varchar(250) ,
+session_duration varchar(250) ,
+purchase_pattern varchar(250) ,
+age_group varchar(250) ,
+risk_score NUMERIC(10,2) ,
+anomaly varchar(250) ,
+error_message varchar(250)
+)
+```
+##
+### CRIAÇÃO DA TABELA DATAQUALITY
+
+``` SQL
+CREATE TABLE IF NOT EXISTS DT_QTLT (
+qtd_erros_Log int, 
+qtd_erros_region__not_exits int ,
+qtd__erros_amount_none int ,
+qtd_erros_risk_none int ,
+qtd_total_registros int ,
+percent_conf_log decimal(10,2) ,
+Dt_ultimo_inset datetime
+)
+
+```
+##
+
+### CRIAÇÃO TABELA RESULTADO 1 :
+
+``` sql
+CREATE TABLE IF NOT EXISTS RSLT_1(
+location_region varchar(250), 
+risk_score decimal(10,2))
+```
+
+
+
+##
+### CRIAÇÃO TABELA RESULTADO 2:
+
+``` SQL
+CREATE TABLE IF NOT EXISTS RSLT_2 (
+receiving_address varchar(250), 
+amount int ,
+timestamp datetime
+)
+```
